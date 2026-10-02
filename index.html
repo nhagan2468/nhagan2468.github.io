@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Natalie E. Hagan</title>
+<meta name="description" content="Natalie E. Hagan — PhD candidate in Cyber Operations at Dakota State University researching vulnerability detection in binaries using natural language processing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --text: #1f2328;
+    --muted: #5b6370;
+    --rule: #e4e1da;
+    --accent: #8a2432;
+    --accent-soft: #f4e9ea;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: Inter, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171a;
+      --surface: #1c1f23;
+      --text: #e6e4df;
+      --muted: #a2a8b1;
+      --rule: #2e3238;
+      --accent: #e08a95;
+      --accent-soft: #2c2023;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 var(--sans);
+    padding: 0 1.25rem;
+  }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  .wrap {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding-block: 3.5rem 4rem;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 3.5rem;
+  }
+
+  /* ---------- sidebar ---------- */
+  aside { position: sticky; top: 2rem; align-self: start; }
+  .photo {
+    width: 100%;
+    max-width: 15rem;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    background: var(--accent-soft);
+  }
+  .photo-fallback {
+    display: grid;
+    place-items: center;
+    font: 600 3.5rem/1 var(--serif);
+    color: var(--accent);
+    letter-spacing: .02em;
+  }
+  h1 {
+    font: 600 1.9rem/1.2 var(--serif);
+    margin: 1.25rem 0 .35rem;
+  }
+  .role { color: var(--muted); margin: 0 0 1.25rem; font-size: .95rem; }
+  .links { list-style: none; padding: 0; margin: 0; font-size: .95rem; }
+  .links li { padding: .3rem 0; border-top: 1px solid var(--rule); overflow-wrap: anywhere; }
+  .links li:last-child { border-bottom: 1px solid var(--rule); }
+  .links span { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+
+  /* ---------- main ---------- */
+  main section + section { margin-top: 2.75rem; }
+  h2 {
+    font: 600 .78rem/1 var(--sans);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--accent);
+    margin: 0 0 1rem;
+    padding-bottom: .6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lede { font: 400 1.22rem/1.55 var(--serif); margin: 0 0 1rem; }
+  p { margin: 0 0 1rem; }
+  .diss {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 1.1rem 1.25rem;
+    margin: 1.25rem 0;
+  }
+  .diss .label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .diss .title { font: 600 1.08rem/1.4 var(--serif); margin: .2rem 0 .5rem; }
+  .diss p:last-child { margin-bottom: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: .45rem; padding: 0; margin: 0; list-style: none; }
+  .tags li {
+    font-size: .82rem;
+    padding: .2rem .65rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--text);
+  }
+  ol.rq { padding-left: 1.2rem; margin: 0; }
+  ol.rq li { margin-bottom: .55rem; }
+  ol.rq li::marker { color: var(--accent); font-weight: 600; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: .1rem 1rem;
+    padding: .7rem 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .entry:last-child { border-bottom: 0; }
+  .entry .what { font-weight: 600; }
+  .entry .where { color: var(--muted); grid-column: 1; font-size: .95rem; }
+  .entry .when { color: var(--muted); font-size: .9rem; white-space: nowrap; grid-row: 1; grid-column: 2; font-variant-numeric: tabular-nums; }
+  .entry .note { grid-column: 1 / -1; font-size: .95rem; margin-top: .2rem; }
+
+  footer {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 1.5rem 0 2.5rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: .85rem;
+  }
+
+  @media (max-width: 760px) {
+    .wrap { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 2rem 3rem; }
+    aside { position: static; display: grid; grid-template-columns: 7.5rem 1fr; gap: 0 1.25rem; align-items: start; }
+    .photo { max-width: 7.5rem; grid-row: span 3; }
+    .photo-fallback { font-size: 2rem; }
+    h1 { margin-top: 0; font-size: 1.6rem; }
+    .links { grid-column: 1 / -1; margin-top: 1.25rem; }
+    .entry { grid-template-columns: 1fr; }
+    .entry .when { grid-row: auto; grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <aside>
+    <!-- Replace photo.jpg with your headshot (same folder). The initials show until it exists. -->
+    <img class="photo" src="headshot.jpg" alt="Photo of Natalie E. Hagan"
+         onerror="this.outerHTML='<div class=&quot;photo photo-fallback&quot; role=&quot;img&quot; aria-label=&quot;Natalie E. Hagan&quot;>NH</div>'">
+    <h1>Natalie E. Hagan</h1>
+    <p class="role">Ph.D. Candidate, Cyber Operations<br>Dakota State University</p>
+    <ul class="links">
+      <li><span>Email</span><a href="mailto:natalie.hagan@trojans.dsu.edu">natalie.hagan@trojans.dsu.edu</a></li>
+      <li><span>CV</span><a href="cv.pdf">Curriculum Vitae (PDF)</a></li>
+      <li><span>Advisor</span>Dr. John Hastings</li>
+      <!-- Optional: uncomment and fill in
+      <li><span>Scholar</span><a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a></li>
+      <li><span>GitHub</span><a href="https://github.com/YOUR_USERNAME">github.com/YOUR_USERNAME</a></li>
+      <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/YOUR_ID">LinkedIn</a></li>
+      -->
+    </ul>
+  </aside>
+
+  <main>
+    <section>
+      <h2>About</h2>
+      <p class="lede"> Researcher examining the application of transformer-based language models to finding security vulnerabilities in compiled software without access to source code.</p>
+      <p>I am a Ph.D. candidate in the Doctorate of Cyber Operations program at the Beacom College of Computer and Cyber Sciences, at Dakota State University; advised by Dr. John Hastings. Before my doctoral work, I spent more than two decades in cyber security engineering and technical leadership, including fourteen years at the Johns Hopkins University Applied Physics Laboratory, a University Affiliated Research Center. My background in reverse engineering, embedded systems, and low-level software development shapes how I approach applying AI to binary analysis.</p>
+    </section>
+
+    <section>
+      <h2>Research</h2>
+      <div class="diss">
+        <div class="label">Dissertation</div>
+        <div class="title">Architecture Neutral Vulnerability Identification in Binaries Using Natural Language Processing Techniques</div>
+        <p>Compiled binaries can be lifted to architecture-neutral intermediate representations (IRs) that sit between assembly and decompiled C. Prior work on learning from lifted IR has focused almost entirely on LLVM IR. My dissertation utilizes a fixed detection pipeline (IR-specific tokenizer and ModernBERT encoder, followed by a BiLSTM classifier) and varies only the representation and compiler optimization level. The goal is to measure how a representation's choice and level of abstraction affect what vulnerability-relevant information a model can learn.</p>
+      </div>
+      <p><strong>Representations compared:</strong> LLVM IR (baseline), Ghidra P-Code, VEX, and Binary Ninja's Medium Intermediate Language (MLIL), evaluated on the Juliet C/C++ test suite for stack-based buffer overflows (CWE-121), compiled with and without common optimizations.</p>
+      <p><strong>Research questions</strong></p>
+      <ol class="rq">
+        <li>Without compiler optimizations, how does the choice of IR affect the performance of a fixed vulnerability-identification pipeline?</li>
+        <li>Under common optimization settings (-O1, -O2, -O3), how does IR choice affect detection, and how does this differ from the unoptimized baseline?</li>
+        <li>To what extent does optimization level moderate the relationship between IR choice and performance, and which IR is most consistent across optimization levels?</li>
+      </ol>
+      <p style="margin-top:1rem"><strong>Status:</strong> Pipeline built and preliminary results obtained for LLVM IR and P-Code on unoptimized binaries; Binary Ninja and VEX experiments are in progress.</p>
+    </section>
+
+    <section>
+      <h2>Interests</h2>
+      <ul class="tags">
+        <li>Natural language processing</li>
+        <li>Program representation learning</li>
+        <li>Binary analysis</li>
+        <li>Software vulnerability detection</li>
+        <li>Intermediate representations</li>
+        <li>Reverse engineering</li>
+        <li>AI for security</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="what">Ph.D., Cyber Operations</div>
+        <div class="when">Expected May 2028</div>
+        <div class="where">Dakota State University, Madison, SD</div>
+      </div>
+      <div class="entry">
+        <div class="what">M.S., Electrical Engineering</div>
+        <div class="when">2004</div>
+        <div class="where">Johns Hopkins University, Baltimore, MD</div>
+      </div>
+      <div class="entry">
+        <div class="what">B.S., Electrical Engineering, Magna Cum Laude</div>
+        <div class="when">2001</div>
+        <div class="where">University of Maryland, College Park, MD</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="what">Senior Cyber Security Capability Engineer</div>
+        <div class="when">2021 – present</div>
+        <div class="where">Nexxis Solutions</div>
+        <div class="note">Product architect and technical lead for multi-site engineering teams; reverse engineering and low-level software development for embedded systems.</div>
+      </div>
+      <div class="entry">
+        <div class="what">Principal Cyber Capability Engineer &amp; Assistant Group Supervisor</div>
+        <div class="when">2007 – 2021</div>
+        <div class="where">Johns Hopkins University Applied Physics Laboratory</div>
+        <div class="note">Led research and development teams in cyber capabilities and wireless systems; supervised groups of 40+ staff; led a research effort examining novel approaches to cyber operations.</div>
+      </div>
+      <div class="entry">
+        <div class="what">Systems Engineer</div>
+        <div class="when">2001 – 2006</div>
+        <div class="where">Lockheed Martin Integrated Systems and Solutions</div>
+        <div class="note">Embedded assembly development and reverse engineering of telecommunications hardware; Advanced Technical Leadership Program.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Honors &amp; Service</h2>
+      <div class="entry">
+        <div class="what">Advocating Women in Engineering Award</div>
+        <div class="when">2016</div>
+        <div class="where">Society of Women Engineers (one of five awarded annually)</div>
+      </div>
+      <div class="entry">
+        <div class="what">Panelist, Non-Kinetic Effects and Convergence</div>
+        <div class="when">2026</div>
+        <div class="where">XFIL CNO Conference, Baltimore, MD</div>
+      </div>
+      <div class="entry">
+        <div class="what">Presenter, Moderator, and Awards Judge</div>
+        <div class="when">2018 – 2021</div>
+        <div class="where">Society of Women Engineers WE and WE Local Conferences</div>
+      </div>
+    </section>
+  </main>
+</div>
+<footer>Last updated October 2026</footer>
+</body>
+</html>
